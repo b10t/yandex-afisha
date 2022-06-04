@@ -12,6 +12,6 @@ class PlaceAdmin(admin.ModelAdmin):
 
 @admin.register(PlaceImage)
 class PlaceImageAdmin(admin.ModelAdmin):
-    list_display = ('place', )
+    list_display = ('position', 'place', )
     list_display_links = ('place', )
     search_fields = ('place', )

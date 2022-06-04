@@ -39,9 +39,13 @@ class PlaceImage(models.Model):
     image = models.ImageField(
         verbose_name='Изображение'
     )
+    position = models.IntegerField(
+        default=0,
+        verbose_name='Позиция'
+    )
 
     def __str__(self) -> str:
-        return f'{self.place.title} #{self.pk}'
+        return f'{self.position} {self.place.title}'
 
     class Meta:
         verbose_name = 'Изображение'
