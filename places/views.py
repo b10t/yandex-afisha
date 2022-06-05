@@ -33,7 +33,7 @@ def get_place_description(place):
         'properties': {
             'title': place.title,
             'placeId': place.pk,
-            'detailsUrl': reverse("place", args=[place.pk])
+            'detailsUrl': reverse("places", args=[place.pk])
         }
     }
 
@@ -56,4 +56,11 @@ def place(request, place_id):
             'lat': place.latitude
         }
     }
-    return JsonResponse(place_description)
+    return JsonResponse(
+        place_description,
+        safe=False,
+        json_dumps_params={
+            'ensure_ascii': False,
+            'indent': 2
+        }
+    )
