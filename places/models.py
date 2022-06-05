@@ -51,3 +51,4 @@ class PlaceImage(models.Model):
     class Meta:
         verbose_name = 'Изображение'
         verbose_name_plural = 'Изображения'
+        ordering = ['position']
