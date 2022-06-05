@@ -28,7 +28,7 @@ ALLOWED_HOSTS = env.list("ALLOWED_HOSTS", [])
 
 SECRET_KEY = env.str("SECRET_KEY", "REPLACE_ME")
 
-DEBUG = env.bool("DEBUG", True)
+DEBUG = env.bool("DEBUG", False)
 
 # Application definition
 
