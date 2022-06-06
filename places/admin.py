@@ -29,20 +29,3 @@ class PlaceAdmin(admin.ModelAdmin):
     inlines = [
         PlaceImageInline,
     ]
-
-
-@admin.register(PlaceImage)
-class PlaceImageAdmin(admin.ModelAdmin):
-    list_display = ('position', 'place', )
-    list_display_links = ('place', )
-    search_fields = ('place', )
-
-    readonly_fields = ['preview_image']
-
-    def preview_image(self, obj):
-        return mark_safe(
-            '<img src="{url}" height={height} />'.format(
-                url=obj.image.url,
-                height=200,
-            )
-        )
