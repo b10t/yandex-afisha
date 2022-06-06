@@ -29,6 +29,7 @@ class Place(models.Model):
     class Meta:
         verbose_name = 'Место'
         verbose_name_plural = 'Места'
+        unique_together = ['latitude', 'longitude']
 
 
 class PlaceImage(models.Model):
