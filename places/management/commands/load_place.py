@@ -22,12 +22,12 @@ def create_place(place_url):
     coordinates = place_description.get('coordinates')
 
     place, is_new_place = Place.objects.get_or_create(
-        latitude=coordinates.get('lat'),
-        longitude=coordinates.get('lng'),
+        title=place_description.get('title'),
         defaults={
-            'title': place_description.get('title'),
             'description_short': place_description.get('description_short'),
-            'description_long': place_description.get('description_long')
+            'description_long': place_description.get('description_long'),
+            'latitude': coordinates.get('lat'),
+            'longitude': coordinates.get('lng')
         }
     )
 
