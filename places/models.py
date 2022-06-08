@@ -23,13 +23,13 @@ class Place(models.Model):
         verbose_name='Долгота'
     )
 
-    def __str__(self) -> str:
-        return f'{self.title}'
-
     class Meta:
         verbose_name = 'Место'
         verbose_name_plural = 'Места'
         unique_together = ['latitude', 'longitude']
+
+    def __str__(self) -> str:
+        return f'{self.title}'
 
 
 class PlaceImage(models.Model):
@@ -47,10 +47,10 @@ class PlaceImage(models.Model):
         verbose_name='Позиция'
     )
 
-    def __str__(self) -> str:
-        return f'{self.position} {self.place.title}'
-
     class Meta:
         verbose_name = 'Изображение'
         verbose_name_plural = 'Изображения'
         ordering = ['position']
+
+    def __str__(self) -> str:
+        return f'{self.position} {self.place.title}'
